@@ -1,5 +1,5 @@
 /* armskel64 program
-   (c) 2023 Tat-Chee Wan <tcwan@usm.my>
+   (c) 2023 Tat-Chee Wan 
 
    Skeleton program showing console I/O, data manipulation, and flow control
    operations. Although the program is linked using the C compiler, this
