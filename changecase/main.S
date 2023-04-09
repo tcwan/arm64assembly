@@ -1,5 +1,5 @@
 /* changecase program
-   (c) 2023 Tat-Chee Wan <tcwan@usm.my>
+   (c) 2023 Tat-Chee Wan 
 
    Simple program showing file I/O, data manipulation, and flow control
    operations. Although the program is linked using the C compiler, this
