@@ -1,6 +1,6 @@
 #!/bin/sh
 OBJDUMP=objdump
-PREFIX=aarch64-gnu-linux-
+PREFIX=aarch64-linux-gnu-
 
 ARM64OBJDUMP=`which $PREFIX$OBJDUMP`
 HOSTOBJDUMP=`which $OBJDUMP`
@@ -8,20 +8,20 @@ HOSTOBJDUMP=`which $OBJDUMP`
 ACTUALOBJDUMP=""
 
 # Prefer AArch64 objdump
-if [ x$ARM64OBJDUMP == "x" ]; then
-	if [ x$HOSTOBJDUMP != "x" ]; then
+if [ "$ARM64OBJDUMP" = "" ]; then
+	if [ "$HOSTOBJDUMP" != "" ]; then
 	  ACTUALOBJDUMP=$HOSTOBJDUMP
 	fi
 else
 	ACTUALOBJDUMP=$ARM64OBJDUMP
 fi
 
-if [ x$ACTUALOBJDUMP == "x" ]; then
+if [ "$ACTUALOBJDUMP" = "" ]; then
 	echo "No Objdump found!"
 	exit
 fi
  
-if [ x$1 == "x" ]; then
+if [ "$1" = "" ]; then
 	echo "$0 <Sourcefile>"
 else
 	sourcefile=`basename -s .elf $1`
