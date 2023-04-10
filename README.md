@@ -1,6 +1,6 @@
 # arm64assembly
 Example ARM64 Assembly programs for Raspberry Pi running AArch64 (ARM64) Linux
-The folloing project folders are available:
+The following project folders are available:
 - armskel64
   - Simple skeleton program to demonstrate ARM64 Assembly code for console I/O, data manipulation, and flow control
 - changecase
