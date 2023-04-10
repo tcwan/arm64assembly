@@ -2,6 +2,8 @@
 Example ARM64 Assembly programs for Raspberry Pi running AArch64 (ARM64) Linux. The code uses only Linux Syscalls, it does not use any C Library functions except for program start and exit.
 
 The following project folders are available:
+- Scripts
+  - Utility scripts to inspect generated code
 - Examples
   - Code snippets to illustrate the use of ARM64 instructions. 
   - Projects with start.S are pure Assembly programs which does not depend on the C Library, which has '_start' as the entry point.
