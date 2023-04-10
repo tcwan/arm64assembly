@@ -25,6 +25,6 @@ if [ x$1 == "x" ]; then
 	echo "$0 <Sourcefile>"
 else
 	sourcefile=`basename -s .elf $1`
-	$OBJDUMP -rdj .text -j .data -j .bss $sourcefile.elf > $sourcefile.objdump
+	$ACTUALOBJDUMP -rdj .text -j .data -j .bss $sourcefile.elf > $sourcefile.objdump
 fi
 
