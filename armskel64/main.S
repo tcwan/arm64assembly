@@ -30,7 +30,7 @@ helloworld: .asciz  "Hello World!\n"
     .text           // Code Storage Area
     .align 4        // Start code on a paragraph (16-byte) boundary
 
-.global main
+    .global main
 main:
     PSHREG LR
     PSHREG2 X19, X20     // X19 used to store string pointer
