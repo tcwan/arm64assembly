@@ -4,7 +4,7 @@
 # -- Cross tools and flags
 XPREFIX=aarch64-linux-gnu-
 AS=$(XPREFIX)as
-ASFLAGS=-g -march=armv8.2-a
+ASFLAGS=-g
 LD=$(XPREFIX)ld
 LDFLAGS=
 CC=$(XPREFIX)gcc
