@@ -46,7 +46,7 @@ main:
     mov    X2, #O_RDONLY     // Read Only access
     mov    X3, #0            // Default mode (0)
     mov    X8, #56     // Service command code 56 openat() opens file
-    svc    0           // Call linux
+    svc    #0          // Call linux
     cmp    X0, #0      // returned FD in X0, Check for negative fd value
     bmi    fileerror   // negative return value == error
 
@@ -59,7 +59,7 @@ readloop:
     mov    X1, X20     // Setup char buffer pointer
     mov    X2, #1      // Process one byte at a time
     mov    X8, #63     // Service command code 63 read() reads from file
-    svc    0           // Call linux
+    svc    #0          // Call linux
 
     cmp   X0, #0       // Check no of bytes read
     bmi   fileerror    // File access error
@@ -83,7 +83,7 @@ displaychar:
     mov    X1, X20     // Setup char buffer pointer
     mov    X2, #1
     mov    X8, #64     // Service command code 64 write() writes to file
-    svc    0           // Call linux
+    svc    #0          // Call linux
     cmp    X0, #1      // Should return number of bytes written
     blt    fileerror   // something went wrong
     b      readloop    // Get next char
@@ -91,7 +91,7 @@ displaychar:
 filedone:
     mov    X0, X19     // Retrieve FD
     mov    X8, #57     // Service command code 57 close() closes file
-    svc    0           // Call linux
+    svc    #0          // Call linux
     cbz    X0, done    // 0 = No error, so exit
 
 fileerror:
@@ -100,7 +100,7 @@ fileerror:
     ldr    X1, =fileerr
     mov    X2, #fileerrlen
     mov    X8, #64     // Service command code 64 write() writes to file
-    svc    0           // Call linux
+    svc    #0          // Call linux
 
 done:
     POPREG2 X19, X20   // Restore registers and LR
@@ -108,7 +108,7 @@ done:
 // Setup the parameters to exit the program and then call Linux to do it
     mov    X0, #0      // Use 0 return code
     mov    X8, #93     // Service command code 93 exit() terminates this program
-    svc    0           // Call linux
+    svc    #0          // Call linux
 
     .end
 
