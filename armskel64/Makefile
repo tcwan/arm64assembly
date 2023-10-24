@@ -66,4 +66,5 @@ all: $(EXEC)
 .PHONY: clean
 
 clean:
-	rm -f $(EXEC) $(AOBJS) $(ALSTS) $(COBJS) $(CLSTS)
+	rm -f $(EXEC) $(AOBJS) $(ALSTS) $(COBJS) $(CLSTS) *.elf
+#	rm -f $(EXEC) $(AOBJS) $(ALSTS) $(COBJS) $(CLSTS)
