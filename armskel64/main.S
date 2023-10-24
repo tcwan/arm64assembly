@@ -46,7 +46,7 @@ displayloop:
     mov    X1, X19      // String pointer
     mov    X2, X20      // Length
     mov    X8, #64      // Service command code 64 write() writes to file
-    svc    0            // Call linux
+    svc    #0           // Call linux
 
 dropleftchar:
     add    X19, X19, #1 // Drop leftmost char by pointing to next char in string
@@ -59,7 +59,7 @@ done:
 // Setup the parameters to exit the program and then call Linux to do it
     mov    X0, #0      // Use 0 return code
     mov    X8, #93     // Service command code 93 exit() terminates this program
-    svc    0           // Call linux
+    svc    #0          // Call linux
 
     .end
 

@@ -28,7 +28,7 @@ done:
     cmp    W0, #n      // Check for error from min_max return
     cset   X0, ne      // If W0 != n, return 1 (error), else 0
     mov    X8, #93     // Service code 93 terminates program
-    svc    0           // Call Linux to terminate the program
+    svc    #0          // Call Linux to terminate the program
 
     .end
 
