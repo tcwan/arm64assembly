@@ -64,6 +64,7 @@ $(EXEC): $(AOBJS) $(COBJS)
 
 all: $(EXEC)
 
+.DEFAULT_GOAL=all
 .PHONY: clean
 
 clean:
