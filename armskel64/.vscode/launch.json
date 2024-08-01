@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    // This launch configuration depends on environment variables in .devcontainer/devcontainer.env
+    // Configuration for use with "webfreak.debug" extension
+
+    // The gdbserver port cannot be retrieved from the environment variables (bug?)
+    // Launch Program (SSH) does not work reliably and requires cleartext user/pass specification
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "gdb",
+            "request": "attach",
+            "name": "Attach to gdbserver",
+            "gdbpath": "${env:GDB_CONTAINER}",
+            "executable": "${env:TARGET_EXEC}",
+            "target": "${env:TARGET_IP}:2345",
+            "stopAtEntry": true,
+            "remote": true,
+            "cwd": "${workspaceRoot}",
+            "valuesFormatting": "parseText"
+        }
+        
+    ]
+}

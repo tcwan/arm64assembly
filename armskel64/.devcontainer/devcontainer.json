@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/docker-existing-dockerfile
+{
+	"name": "Ubuntu Cross",
+	"context": ".",
+	"image": "tcwan/ubuntu-22_04-rpi4cross-vsc:22.04-arm64",
+	// "build": {
+    // "dockerfile": "./Dockerfile",
+    // "context": "."
+	// },
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached", 
+	"workspaceFolder": "/workspace",
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"remote.containers.workspaceMountConsistency": "cached"
+	},
+	"runArgs": [
+		"--env-file", ".devcontainer/devcontainer.env",
+		"--network", "host",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt", "seccomp=unconfined",
+	],
+	"extensions": [
+		"ms-vscode.makefile-tools",
+		"ms-vscode.cpptools-extension-pack",
+		"webfreak.debug"
+	]
+}
