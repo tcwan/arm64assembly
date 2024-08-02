@@ -34,6 +34,12 @@
             "problemMatcher": [],
         },
         {
+            "label": "Kill Zombie GDBServer",
+            "type": "shell",
+            "command": "ssh ${config:TARGET_USER}@${config:TARGET_IP} \"pkill gdbserver\"",
+            "problemMatcher": [],
+        },
+       {
             "label": "Deploy & Launch GDBServer",
             "type": "shell",
             "command": "scp ${config:APP_BIN_DIR}/${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP}:${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME} && \
