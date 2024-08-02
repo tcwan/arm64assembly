@@ -8,14 +8,14 @@
     // "dockerfile": "./Dockerfile",
     // "context": "."
 	// },
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached", 
-	"workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind,consistency=cached", 
+	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"remote.containers.workspaceMountConsistency": "cached"
 	},
 	"runArgs": [
-		"--env-file", ".devcontainer/devcontainer.env",
+		// "--env-file", ".devcontainer/devcontainer.env",
 		"--network", "host",
 		"--cap-add=SYS_PTRACE",
 		"--security-opt", "seccomp=unconfined",

@@ -1,0 +1,34 @@
+// Modified from https://github.com/kstrize/embedded_ide
+{
+    // GDB executable for Host environment
+    "GDB_HOST": "/opt/local/bin/ggdb",
+    // GDB executable for Target (Embedded board) environment
+    "GDB_TARGET": "/usr/bin/gdb",
+    // GDB executable for Docker Container environment
+    "GDB_CONTAINER": "/usr/bin/gdb-multiarch",
+    // Selected GDB executable
+    "GDB_EXEC": "${config:GDB_CONTAINER}",
+
+    // Embedded board IP address
+    "TARGET_IP": "xxxx",
+    // GDB server port
+    "DEBUG_PORT": "2345",
+    // Workspace enviroment script that needs to be sourced
+    "WORKSPACE_ENV": "${workspaceFolder}/path/to/env/file",
+    // Workspace build direcotry
+    "WORKSPACE_BUILD_DIR": "${workspaceFolder}/build",
+    // Source directory of the devtool workspace
+    "WORKSPACE_SRC_DIR": "${workspaceFolder}",
+    // SDK enviroment script that needs to be sourced
+    "SDK_ENV": "path/to/sdk/enviroment",
+    // Application cross compile build command
+    "APP_BUILD_CMD": "make -j$(nproc)",
+    // Location of the application binary file
+    "APP_BIN_DIR": "${workspaceFolder}",
+    // Name of the application binary file
+    "APP_BIN_NAME": "${workspaceFolderBasename}.elf",
+    // Embeded board Linux user name
+    "TARGET_USER": "xxxx",
+    // Location of the applicaton on the embedded board
+    "TARGET_APP_BIN_DIR": "~"
+}

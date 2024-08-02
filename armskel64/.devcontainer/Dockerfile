@@ -27,6 +27,7 @@ RUN apt-get update && \
       doxygen \
       git \
       bzip2 \
+      openssh-client \
       wget && \
     apt-get clean
 
