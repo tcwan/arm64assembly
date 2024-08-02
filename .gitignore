@@ -56,3 +56,7 @@ dkms.conf
 .project
 .cproject
 .settings/
+
+# VSC Project specific
+*/settings.json
+
