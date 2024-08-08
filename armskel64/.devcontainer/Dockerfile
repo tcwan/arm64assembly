@@ -9,7 +9,9 @@ WORKDIR /work
 ADD . /work
 
 # Install any needed packages specified in requirements.txt
-# Add multiarch support to include cross-build libraries
+# This Dockerfile is meant to be built for arm64 arch.
+# On x86_64 platforms, additional cross-built library packages 
+# for arm64 must be included
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
