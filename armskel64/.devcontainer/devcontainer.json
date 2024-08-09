@@ -3,7 +3,7 @@
 {
 	"name": "Ubuntu Cross",
 	"context": ".",
-	"image": "tcwan/ubuntu-22_04-rpi4cross-vsc:22.04-arm64",
+	"image": "tcwan/ubuntu-24_04-rpi5cross:arm64",
 	// "build": {
     // "dockerfile": "./Dockerfile",
     // "context": "."
