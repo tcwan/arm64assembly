@@ -1,9 +1,10 @@
+// Make sure to set the image tag xxxx to the correct type: arm64 or amd64
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/docker-existing-dockerfile
 {
 	"name": "Ubuntu Cross",
 	"context": ".",
-	"image": "tcwan/ubuntu-24_04-rpi5cross:arm64",
+	"image": "tcwan/ubuntu-24_04-rpi5cross:xxxx",
 	// "build": {
     // "dockerfile": "./Dockerfile",
     // "context": "."
