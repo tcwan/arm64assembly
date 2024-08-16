@@ -11,6 +11,10 @@
 
     // Embedded board IP address
     "TARGET_IP": "xxxx",
+    // Embeded board Linux user name
+    "TARGET_USER": "xxxx",
+    // Location of the applicaton on the embedded board
+    "TARGET_APP_BIN_DIR": "~"
     // GDB server port
     "DEBUG_PORT": "2345",
     // Workspace enviroment script that needs to be sourced
@@ -27,8 +31,4 @@
     "APP_BIN_DIR": "${workspaceFolder}",
     // Name of the application binary file
     "APP_BIN_NAME": "${workspaceFolderBasename}.elf",
-    // Embeded board Linux user name
-    "TARGET_USER": "xxxx",
-    // Location of the applicaton on the embedded board
-    "TARGET_APP_BIN_DIR": "~"
 }

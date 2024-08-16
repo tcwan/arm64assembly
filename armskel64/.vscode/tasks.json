@@ -22,6 +22,13 @@
             "problemMatcher": "$gcc"
         },
         {
+            "label": "Create and Insert SSH Key",
+            "type": "shell",
+            "command": "ssh-keygen -t ed25519 -C \"VSC Docker ${config:APP_BIN_NAME} Login\" -f /root/.ssh/id_ed25519-${config:APP_BIN_NAME} && \
+            ssh-copy-id -i /root/.ssh/id_ed25519-${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP}",
+            "problemMatcher": [],
+        },
+        {
             "label": "Deploy App",
             "type": "shell",
             "command": "scp ${config:APP_BIN_DIR}/${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP}:${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME}",

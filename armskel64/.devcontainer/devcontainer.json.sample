@@ -6,7 +6,7 @@
 	"context": ".",
 	"image": "tcwan/ubuntu-24_04-rpi5cross:xxxx",
 	// "build": {
-    // "dockerfile": "./Dockerfile",
+    // "dockerfile": "./Dockerfile.xxxx",
     // "context": "."
 	// },
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind,consistency=cached", 
