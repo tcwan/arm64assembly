@@ -23,7 +23,6 @@
 	],
 	"extensions": [
 		"ms-vscode.makefile-tools",
-		"ms-vscode.cpptools-extension-pack",
-		"webfreak.debug"
+		"ms-vscode.cpptools-extension-pack"
 	]
 }
