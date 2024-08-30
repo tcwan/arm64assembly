@@ -31,26 +31,26 @@
         {
             "label": "Deploy App",
             "type": "shell",
-            "command": "scp ${config:APP_BIN_DIR}/${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP}:${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME}",
+            "command": "scp -i /root/.ssh/id_ed25519-${config:APP_BIN_NAME} ${config:APP_BIN_DIR}/${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP}:${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME}",
             "problemMatcher": [],
         },
         {
             "label": "Launch GDBServer",
             "type": "shell",
-            "command": "ssh ${config:TARGET_USER}@${config:TARGET_IP} \"gdbserver :${config:DEBUG_PORT} ${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME}\"",
+            "command": "ssh -i /root/.ssh/id_ed25519-${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP} \"gdbserver :${config:DEBUG_PORT} ${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME}\"",
             "problemMatcher": [],
         },
         {
             "label": "Kill Zombie GDBServer",
             "type": "shell",
-            "command": "ssh ${config:TARGET_USER}@${config:TARGET_IP} \"pkill gdbserver\"",
+            "command": "ssh -i /root/.ssh/id_ed25519-${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP} \"pkill gdbserver\"",
             "problemMatcher": [],
         },
        {
             "label": "Deploy & Launch GDBServer",
             "type": "shell",
-            "command": "scp ${config:APP_BIN_DIR}/${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP}:${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME} && \
-            ssh ${config:TARGET_USER}@${config:TARGET_IP} \"gdbserver :${config:DEBUG_PORT} ${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME}\"",
+            "command": "scp -i /root/.ssh/id_ed25519-${config:APP_BIN_NAME} ${config:APP_BIN_DIR}/${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP}:${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME} && \
+            ssh -i /root/.ssh/id_ed25519-${config:APP_BIN_NAME} ${config:TARGET_USER}@${config:TARGET_IP} \"gdbserver :${config:DEBUG_PORT} ${config:TARGET_APP_BIN_DIR}/${config:APP_BIN_NAME}\"",
             "problemMatcher": [],
         }
 
