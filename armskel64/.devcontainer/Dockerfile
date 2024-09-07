@@ -1,9 +1,10 @@
-# Make sure to update Architectures for ubuntu.sources
+# Make sure to define PLATFORM build-arg: arm64 or amd64
+# docker build --build-arg PLATFORM=xxxx .
 FROM ubuntu:24.04
 LABEL maintainer="TC Wan <105933+tcwan@users.noreply.github.com>"
 LABEL Description="Image for building and debugging Ubuntu Linux for RPi5 arm-embedded projects from git, adapted from Dockerfile created by Niklas Hauser <niklas.hauser@rwth-aachen.de>\nSource: https://hub.docker.com/r/stronglytyped/arm-none-eabi-gcc/"
-ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Kuala_Lumpur
+ARG PLATFORM
 ARG DIST=noble
 WORKDIR /work
 
@@ -12,7 +13,15 @@ ADD . /work
 # Install any needed packages specified in requirements.txt
 # Add multiarch support to include cross-build libraries
 RUN dpkg --add-architecture arm64 && \
-    sed -i 's/^Types: deb$/Types: deb\nArchitectures: amd64/g' /etc/apt/sources.list.d/ubuntu.sources && \
+    if [ "$PLATFORM" = "arm64" ]; then \
+        sed -i 's/^Types: deb$/Types: deb\nArchitectures: arm64/g' /etc/apt/sources.list.d/ubuntu.sources ; \
+    elif [ "$PLATFORM" = "amd64" ]; then \
+        sed -i 's/^Types: deb$/Types: deb\nArchitectures: amd64/g' /etc/apt/sources.list.d/ubuntu.sources ; \
+    else \
+      echo "Unknown PLATFORM" && \
+      exit 1; \
+    fi
+RUN \    
     cp /work/${DIST}-arm64.sources /etc/apt/sources.list.d/ && \
     apt-get update && \
     apt-get upgrade -y && \

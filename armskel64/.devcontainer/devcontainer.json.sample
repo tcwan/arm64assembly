@@ -1,4 +1,4 @@
-// Make sure to set the image tag xxxx to the correct type: arm64 or amd64
+// Make sure to set the image tag xxxx and PLATFORM xxxx to the correct type: arm64 or amd64
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/docker-existing-dockerfile
 {
@@ -6,8 +6,11 @@
 	"context": ".",
 	"image": "tcwan/ubuntu-24_04-rpi5cross:xxxx",
 	// "build": {
-    // "dockerfile": "./Dockerfile.xxxx",
-    // "context": "."
+	//  "dockerfile": "./Dockerfile",
+	//  "args": {
+	//   "PLATFORM" : "xxxx"
+	//  },
+	//  "context": "."
 	// },
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind,consistency=cached", 
 	"workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
@@ -23,8 +26,6 @@
 	],
 	"extensions": [
 		"ms-vscode.makefile-tools",
-		"ms-vscode.cpptools-extension-pack",
-		"Mikhail-Arkhipov.armassemblyeditor"
-
+		"ms-vscode.cpptools-extension-pack"
 	]
 }
